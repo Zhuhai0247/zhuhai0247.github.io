@@ -3,7 +3,7 @@ title: 逐海
 SEOTitle: 逐海的博客 
 header-img: img/home-background.jpg
 email: zhu_liu2022@163.com
-description: "拂水中月，月不在，不拂又来"
+description: "Best Wishes"
 keyword: "blog"
 url: ""              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
@@ -58,7 +58,7 @@ kramdown:
 
 
 # Disqus settings
-disqus_username: 逐海
+disqus_username: Zhuhai0247
 
 # Netease settings
 netease_comment: false
