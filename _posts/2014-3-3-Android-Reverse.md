@@ -301,7 +301,7 @@ JAVA 反射机制是在运行状态中，对于任意一个类，都能够知道
         method.setAccessible(true);
 
         // 通过 invoke 即可调用该方法
-        method.invoke(class1,"hello world",g);
+        method.invoke(class1,"拂水中月，月不在，不拂又来",g);
 
         // 对于以上调用，catch 以上可能的 Exception 即可调用该方法
     }catch (NoSuchFieldException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e){
