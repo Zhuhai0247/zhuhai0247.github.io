@@ -32,7 +32,7 @@ tags:
 - 生命周期： `Android` 中维护一个 `Activity Stack` ， 使得一个 `Activity` 有四种状态： `Active` ； `Paused` ； `Stoped` ； `Destroyed` 。
 > 暂停和停止的区别作于：暂停一般系统不会销毁该活动；而停止状态是该活动被其他活动完全覆盖（或点击 `HOME` 键退入后台），系统在需要时会自动销毁该活动。
 
-![](https://raw.githubusercontent.com/Zhuhai0247/blog-img/master/2f2f4510615fd19d0c681bbd2d0b58327683fd7439a3414da2969c705145719f.png)
+![](https://raw.githubusercontent.com/Zhuhai0247/blog-img/master/lab11.png)
 
 #### Service
 
@@ -103,7 +103,7 @@ tags:
 
 ### Task1
 有了以上安卓编程基础，可以开始实现 Task1，首先创建一个 Receiver：
-![](../images/step1-1.png)
+![](https://raw.githubusercontent.com/Zhuhai0247/blog-img/master/step1-1.png)
 可以看见在AndroidManifest.xml中已经自动添加了receiver字段，接下来实现要求：开机自启动和后台自启动一个service。
 
 
@@ -225,7 +225,7 @@ if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCA
 这里，我们使用 API `Handler` 可以实现子线程切换UI（本质上，这些API也是切换回了主线程来进行更新UI）。
 
 为了实现 Task 需要的效果，添加一个 `button` 的点击事件并点击按钮开启一个线程后，调用以上 API 在子线程中进行 UI 更新，主要使用了 `Looper`。
-![图 1](../images/ea2f5d0a3f1d01dd5546914461c457861c8aa227f7ca7324b075ac9d92dc7d82.png)  
+![](https://raw.githubusercontent.com/Zhuhai0247/blog-img/master/202210101738602.png)
 
 具体代码如下：
 ```java
@@ -355,7 +355,7 @@ JAVA 反射机制是在运行状态中，对于任意一个类，都能够知道
   - 返回 true。
 
 通过以上分析，可以构造出合适的值：0keyx123x9001
-![图 1](../images/ea59a1404ec95a13b1b34e90097fbf548987daecb6ab5f3bad96516740aaeabf.png)。
+![](https://raw.githubusercontent.com/Zhuhai0247/blog-img/master/202210101738384.png)
 并且可以还原出 java 代码：
 ```java
 public class Checker {
@@ -541,19 +541,19 @@ public class Encoder {
 }    
 ```
 从还原的代码中得到 encoding 的密文：
-![图 1](../images/28c7a73f286bb5b6bb47dc90955fe695e9e9d4f06b7fbb2216ea3bb1b6feadbd.png)  
+![](https://raw.githubusercontent.com/Zhuhai0247/blog-img/master/202210101738716.png)
 运行程序，得到 true：
-![图 2](../images/56f68643eef40265a9a871ff175e7bfc875761f08e21806cea502a0628402213.png)  
+![](https://raw.githubusercontent.com/Zhuhai0247/blog-img/master/202210101738322.png)
 
 ## Step3
 
 ### task 1
 将 APP 拖入 jadx 开始分析。
 首先，在核心代码中，可以发现，将 I0 改为 99999 后，即满足 task 1 条件。
-![图 1](../images/7d353e8830ded711ca4f66e2e6bdc684add9d671e1ef236a916da7b5dc5657ca.png)  
-![图 2](../images/2f2f4510615fd19d0c681bbd2d0b58327683fd7439a3414da2969c705145719f.png)  
+![](https://raw.githubusercontent.com/Zhuhai0247/blog-img/master/202210101739550.png)
+![](https://raw.githubusercontent.com/Zhuhai0247/blog-img/master/202210101739277.png)
 重新打包并签名包后，可以看到成果：
-![图 3](../images/cd455d9fa4408cab0a87d1b2a87fb5302f8ce77d2a4cd51f61df0fb21e421c10.png)  
+![](https://raw.githubusercontent.com/Zhuhai0247/blog-img/master/202210101739011.png)
 
 ### task 2
 观察 playgame 中的代码，将其 Java 代码运行后得到：lightyellowdress，输入后即完成 task2 。
@@ -594,7 +594,7 @@ public class Checker {
 
 }    
 ```
-![图 4](../images/fa72c0a50ab313457d00559b5b00b483b7afb55fbcaa77e8a1ce09e577f6784a.png)  
+![](https://raw.githubusercontent.com/Zhuhai0247/blog-img/master/202210101739626.png)
 
 
 ### Task 3

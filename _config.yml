@@ -1,9 +1,9 @@
 # Site settings
-title: Michael Blog
-SEOTitle: 经磊的博客 
+title: 逐海
+SEOTitle: 逐海的博客 
 header-img: img/home-background.jpg
-email: jl15312407650@gmail.com
-description: "为学无间断，如行云流水。"
+email: zhu_liu2022@163.com
+description: "拂水中月，月不在，不拂又来"
 keyword: "blog"
 url: ""              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
@@ -78,8 +78,8 @@ ga_domain: false
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "写写代码，喜欢搞嵌入式，热爱阅读听音乐。"
-sidebar-avatar: https://github.com/michaelchemic.png # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: "感觉代码不够优雅。"
+sidebar-avatar: https://github.com/Zhuhai0247.png # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
@@ -106,7 +106,7 @@ friends: [
     #     title: "Su",
     #     href: "http://su.gallery/"
     # },{
-        title: "Michael_chemic",
-        href: "https://blog.csdn.net/qq_40928870?spm=1011.2415.3001.5343"
+        title: "BILIBILI_Zhuhai",
+        href: "https://space.bilibili.com/34429237"
     }
 ]
