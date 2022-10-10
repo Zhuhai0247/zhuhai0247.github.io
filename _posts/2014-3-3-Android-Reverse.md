@@ -1,14 +1,12 @@
 ---
-title: "Lab1 Android Reverse 学习总结"
-subtitle: "Lab1 Android Reverse 学习总结"
+title: "Android Reverse"
+subtitle: "有一种什么都学了但什么都没学的感觉"
 layout: post
 author: "Zhuhai"
 header-style: text
 tags:
   - Lab1 Android Reverse 学习总结
 ---
-
-# Lab1 Android Reverse 学习总结
 
 ## Step1
 
