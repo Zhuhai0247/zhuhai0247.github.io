@@ -2,7 +2,7 @@
 title: "Lab1 Android Reverse 学习总结"
 subtitle: "Lab1 Android Reverse 学习总结"
 layout: post
-author: "Michael"
+author: "Zhuhai"
 header-style: text
 tags:
   - Lab1 Android Reverse 学习总结
@@ -610,7 +610,7 @@ public class Checker {
     return-object p0
 ```
 然后得到flag：SmaliIsCool。
-![图 5](../images/876341328c0575c02e6eb7c22b0cfe556cc5b0d7d02fb1971e074bca6ddef024.png)  
+![](https://raw.githubusercontent.com/Zhuhai0247/blog-img/master/202210101740718.png) 
 
 
 ### Task 4

@@ -209,7 +209,7 @@ What PWA is trying to solve are some fundamental problems of current web applica
 Finally, I’d love to thank:
 
 - my colleagues [YiSi Wang](https://github.com/YiSiWang), [GuangHui Ren](https://github.com/rguanghui), [JiyinYiyong](https://medium.com/@jiyinyiyong) from Eleme
-- collaborator [Michael Yeung](https://medium.com/@micyeung), [Liam Spradlin](https://medium.com/@LiamSpradlin) and other collaborators from Google
+- collaborator [zhuhai Yeung](https://medium.com/@micyeung), [Liam Spradlin](https://medium.com/@LiamSpradlin) and other collaborators from Google
 - collaborators from UC/Tencent
 
 And special thanks to 
