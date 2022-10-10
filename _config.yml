@@ -14,9 +14,9 @@ future: true
 # SNS settings
 RSS: false
 zhihu_username:     tony-blair-94
-github_username:    michaelchemic
-twitter_username:   Michael_azures
-facebook_username:    Michael Chemic
+github_username:    Zhuhai0247
+twitter_username:   逐海
+facebook_username:
 #linkedin_username:  firstname-lastname-idxxxx
 
 
@@ -58,7 +58,7 @@ kramdown:
 
 
 # Disqus settings
-disqus_username: Michael
+disqus_username: 逐海
 
 # Netease settings
 netease_comment: false
