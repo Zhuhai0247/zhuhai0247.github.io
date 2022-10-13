@@ -13,7 +13,7 @@ future: true
 
 # SNS settings
 RSS: false
-zhihu_username:     tony-blair-94
+zhihu_username:  
 github_username:    Zhuhai0247
 twitter_username:   逐海
 facebook_username:
@@ -96,7 +96,7 @@ service-worker: true
 
 
 # MathJax rendering for layout:page (e.g. post preview)
-page-mathjax: false
+page-mathjax: true
 
 
 

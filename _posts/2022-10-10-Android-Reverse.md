@@ -112,8 +112,6 @@ tags:
 ```java
     @Override
     public void onReceive(Context context, Intent intent) {
-        // TODO: This method is called when the BroadcastReceiver is receiving
-        // an Intent broadcast.
 
         if (intent.getAction().equals("android.intent.action.BOOT_COMPLETED")){
             Intent i=new Intent(context,MainActivity.class);
@@ -625,6 +623,7 @@ public class Checker {
             LoginScreen.this.remember = (CheckBox) LoginScreen.this.findViewById(R.id.remember);
             // 判断是否点击 remember
             if (LoginScreen.this.remember.isChecked()) {
+                // 这里会将 passwd 用 base64 存储
                 LoginScreen.this.rememberme();
             }
             LoginScreen.this.dologin();
@@ -664,6 +663,7 @@ public int dologin() {
     int statusCode = 0;
     try {
         SharedPreferences stuff = PreferenceManager.getDefaultSharedPreferences(this);
+
         // 调用 restClient.doLogin 函数获取 statusCode
         statusCode = restClient.doLogin(stuff.getString("serverip", null), stuff.getString("serverport", null), this.username_text, this.password_text);
     } catch (JSONException e) {
@@ -673,6 +673,7 @@ public int dologin() {
     } catch (HttpException e3) {
         e3.printStackTrace();
     }
+    // 登录成功
     if (statusCode == -1) {
         SharedPreferences stuff2 = PreferenceManager.getDefaultSharedPreferences(this);
         String serverip = stuff2.getString("serverip", null);
@@ -682,7 +683,9 @@ public int dologin() {
         i.putExtra("password", this.password_text);
         i.putExtra("serverip", serverip);
         i.putExtra("serverport", serverport);
+        // 启动  postlogin 活动
         startActivity(i);
+    // 登陆失败
     } else {
         Toast.makeText(this, "Login Failed", 0).show();
     }
@@ -690,3 +693,43 @@ public int dologin() {
 }
 
 ```
+
+在 restClient 中， doLogin 函数主要负责向指定 IP 和 port 发送 post 形式的 login 信息进行校验，然后再返回状态码情况。
+例如：`http://192.168.1.101:8080/login/username=xxx & password=xxx`
+
+```c
+public int doLogin(String server, String port, String username_text, String password_text) throws JSONException, IOException, HttpException {
+    Map<String, String> parameters = new HashMap<>();
+    parameters.put("username", username_text);
+    parameters.put("password", password_text);
+    String theJsonResponse = postHttpContent(String.valueOf("http://") + server + ":" + port + "/login", parameters);
+    Log.e(TAG, "Login tried as: " + username_text + " with password: " + password_text);
+    System.out.println(parameters.toString());
+    return parseError(theJsonResponse);
+}
+
+```
+
+如果检验成功，将启动 PostLogin 活动。该活动中最重要的是 dotransfer 方法，也就是转账方法。但遗憾的是 jadx 对该方法反汇编失败了。
+![](https://raw.githubusercontent.com/Zhuhai0247/blog-img/master/202210131419562.png)
+尝试查看 500 余行的 smali 代码。其逻辑大概为：
+1. 初始化转账界面，包括 `from account` ， `to account` 等。
+2. 校验当前账户的合法性。
+3. 调用 Transfer 进行转账。
+4. 记录当前转账信息，调用 DataHelper ，写入 sqlite 数据库中。
+
+> 但是，我 adb shell 进去发现 rawhistory 文件夹不存在，数据库也找不到，感觉到这就进行不下去了。
+
+综上，当我输入自身 IP 地址时，可以进入 transfer 界面，并且可以随意转账并打印，但是无法存储。
+![](https://raw.githubusercontent.com/Zhuhai0247/blog-img/master/202210131427351.png)
+涉及 passwd 的操作如下，当账号密码输入后：
+- 保存到 LoginScreen 的 EditText 中
+  - 若选中 remeberme ，则会被写入 SharedPreferences 中，一共写入了三种。
+    - 账户
+    - 密码
+    - base64 后的密码
+  - 若使用 fill data ，则会从 SharedPreferences 中提取账户密码填入，这样看 base64 的密码多余。
+  - 若登录，则在指定 IP 处检验密码，若成功则将账号密码及 IP 信息传入 PostLogin 中。
+    - PostLogin 中及后续操作中并没有再用到账户和密码，感觉传了多余参数。
+
+以上一系列操作中，密码多次以明文传输，非常的不规范，容易被入侵者以动态调试或截取网络数据包的方式拿到明文形式的密码。可以采用哈希的方式存储密码然后在互联网传输。
